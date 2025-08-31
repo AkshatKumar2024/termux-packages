@@ -1,5 +1,3 @@
-diff --git a/wcwidth.c b/wcwidth.c
-index b62725b..9be037f 100644
 --- a/wcwidth.c
 +++ b/wcwidth.c
 @@ -497,6 +497,10 @@ static struct width_interval WIDE_EASTASIAN[] = {
