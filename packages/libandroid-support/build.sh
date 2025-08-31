@@ -16,8 +16,11 @@ TERMUX_PKG_AUTO_UPDATE=false
 
 termux_step_post_get_source() {
 	cp wcwidth-${TERMUX_PKG_VERSION[1]}/wcwidth.c src/
-	echo "Current directory: $(pwd)"
-	ls -R .
+	echo "===== DEBUG wcwidth.c location ====="
+	ls -l src/ | tee /dev/stderr
+	echo "===== DEBUG wcwidth.c head ====="
+	head -n 40 src/wcwidth.c | tee /dev/stderr
+	echo "===================================="
 	patch -p1 -i "$TERMUX_PKG_BUILDER_DIR/double-width-icons.patch"
 }
 
