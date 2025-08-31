@@ -18,7 +18,7 @@ termux_step_post_get_source() {
 	cp wcwidth-${TERMUX_PKG_VERSION[1]}/wcwidth.c src/
 	echo "Current directory: $(pwd)"
 	ls -R .
-	patch -p0 -i "$TERMUX_PKG_BUILDER_DIR/double-width-icons.patch"
+	patch -p1 -i "$TERMUX_PKG_BUILDER_DIR/double-width-icons.patch"
 }
 
 termux_step_make() {
