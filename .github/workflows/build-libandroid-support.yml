@@ -1,0 +1,34 @@
+name: Build libandroid-support
+
+on:
+  workflow_dispatch: # lets you trigger manually
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Termux build environment
+        run: |
+          sudo apt update
+          sudo apt install -y git wget curl build-essential python3 python3-pip \
+            unzip zip xz-utils file autoconf automake pkg-config libtool \
+            cmake ninja-build clang llvm
+
+      - name: Build libandroid-support
+        run: |
+          ./scripts/run-docker.sh ./build-package.sh -a aarch64 -I libandroid-support
+
+      - name: Upload deb package
+        uses: actions/upload-artifact@v4
+        with:
+          name: libandroid-support-aarch64
+          path: output/*.deb
+
+      - name: Upload deb package
+        uses: actions/upload-artifact@v4
+        with:
+          name: libandroid-support-aarch64
+          path: output/*.deb
