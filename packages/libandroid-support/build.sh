@@ -23,7 +23,7 @@ termux_step_post_get_source() {
 	echo "===== DEBUG wcwidth.c grep ====="
 	grep -n "WIDE_EASTASIAN" src/wcwidth.c | tee /dev/stderr
 	echo "================================"
-	patch -p1 -i "$TERMUX_PKG_BUILDER_DIR/double-width-icons.patch"
+	patch -p1 --fuzz=3 -i "$TERMUX_PKG_BUILDER_DIR/double-width-icons.patch"
 }
 
 termux_step_make() {
