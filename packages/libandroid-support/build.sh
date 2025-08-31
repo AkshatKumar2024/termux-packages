@@ -19,7 +19,7 @@ termux_step_post_get_source() {
 	echo "===== DEBUG wcwidth.c location ====="
 	ls -l src/ | tee /dev/stderr
 	echo "===== DEBUG wcwidth.c tail ====="
-	tail -n 40 src/wcwidth.c | tee /dev/stderr
+	tail -n 75 src/wcwidth.c | tee /dev/stderr
 	echo "===== DEBUG wcwidth.c grep ====="
 	grep -n "WIDE_EASTASIAN" src/wcwidth.c | tee /dev/stderr
 	echo "================================"
