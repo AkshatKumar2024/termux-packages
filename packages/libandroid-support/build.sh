@@ -15,11 +15,18 @@ TERMUX_PKG_ESSENTIAL=true
 TERMUX_PKG_AUTO_UPDATE=false
 
 termux_step_post_get_source() {
-	patch -p1 -i "$TERMUX_PKG_BUILDER_DIR/double-width-icons.patch"
 	cp wcwidth-${TERMUX_PKG_VERSION[1]}/wcwidth.c src/
 }
 
 termux_step_make() {
+	echo "===== DEBUG wcwidth.c location ====="
+	ls -l src/ | tee /dev/stderr
+	echo "===== DEBUG wcwidth.c tail ====="
+	tail -n 75 src/wcwidth.c | tee /dev/stderr
+	echo "===== DEBUG wcwidth.c grep ====="
+	grep -n "WIDE_EASTASIAN" src/wcwidth.c | tee /dev/stderr
+	echo "================================"
+
 	local c_file
 
 	mkdir -p objects
