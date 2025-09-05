@@ -26,9 +26,3 @@ jobs:
         with:
           name: libandroid-support-aarch64
           path: output/*.deb
-
-      - name: Upload deb package
-        uses: actions/upload-artifact@v4
-        with:
-          name: libandroid-support-aarch64
-          path: output/*.deb
