@@ -11,3 +11,17 @@
  };
  
  static bool intable(struct width_interval* table, int table_length, int c) {
+
+--- a/wcwidth-4/wcwidth.c
++++ b/wcwidth-4/wcwidth.c
+@@ -497,6 +497,10 @@ static struct width_interval WIDE_EASTASIAN[] = {
+         {0x1faf0, 0x1faf8},  // Hand With Index Finger A..(nil)
+         {0x20000, 0x2fffd},  // Cjk Unified Ideograph-20..(nil)
+         {0x30000, 0x3fffd},  // Cjk Unified Ideograph-30..(nil)
++        // Private Use Area (contains nerd font icons) need 2 cells
++        {0xe000, 0xf8ff},
++        {0xf0000, 0xffffd},
++        {0x100000, 0x10ffd},
+ };
+ 
+ static bool intable(struct width_interval* table, int table_length, int c) {
