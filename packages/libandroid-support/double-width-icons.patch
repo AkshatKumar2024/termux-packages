@@ -1,5 +1,5 @@
---- a/wcwidth-4/wcwidth.c
-+++ b/wcwidth-4/wcwidth.c
+--- a/src/wcwidth.c
++++ b/src/wcwidth.c
 @@ -497,6 +497,10 @@ static struct width_interval WIDE_EASTASIAN[] = {
          {0x1faf0, 0x1faf8},  // Hand With Index Finger A..(nil)
          {0x20000, 0x2fffd},  // Cjk Unified Ideograph-20..(nil)
